@@ -4,8 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useInput } from 'hooks/useInput';
 import { signupAPI } from 'apis/signApi';
 // component import
-import { AuthForm } from 'components/AuthForm';
-
+import { AuthForm } from 'components/auth/AuthForm';
+import { AuthStyle } from 'components/auth/AuthStyle';
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export const Signup = () => {
   }
 
   return (
-    <div>
+    <AuthStyle>
       <h1>회원가입</h1>
       <AuthForm
         email={email}
@@ -35,8 +35,10 @@ export const Signup = () => {
         type='회원가입'
         testid='signup-button'
       />
-      <Link to='/signin'>로그인</Link>
-      <span>으로 이동하기 </span>
-    </div>
+      <div className='link'>
+        <Link to='/signin'>로그인</Link>
+        <span>으로 이동하기 </span>
+      </div>
+    </AuthStyle>
   )
 }
