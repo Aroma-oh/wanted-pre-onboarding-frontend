@@ -1,7 +1,10 @@
-import { Input } from '../components/Input';
-import { Button } from '../components/Button';
-import { emailValidate, passwordValidate } from '../utils/validation';
+// react import
 import { ChangeEvent } from 'react';
+// component import
+import { Input } from 'components/common/Input';
+import { Button } from 'components/common/Button';
+// validate import
+import { emailValidate, passwordValidate } from 'utils/validation';
 
 interface Props {
   email: string;

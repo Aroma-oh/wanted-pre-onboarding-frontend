@@ -1,6 +1,9 @@
-import { TodoItem } from '../components/TodoItem';
-import { updateTodo } from '../apis/todoApi';
-import { TodoProps } from '../types/todoTypes';
+// component import
+import { TodoItem } from 'components/todo/TodoItem';
+// api import
+import { updateTodo } from 'apis/todoApi';
+// type import
+import { TodoProps } from 'types/todoTypes';
 
 interface Props {
   todoList: TodoProps[];

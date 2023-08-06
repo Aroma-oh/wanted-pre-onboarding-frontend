@@ -1,9 +1,9 @@
 // component import 
-import { Input } from './Input';
-import { Button } from './Button';
+import { Input } from 'components/common/Input';
+import { Button } from 'components/common/Button';
 // custom hook, api import 
-import { useInput } from '../hooks/useInput';
-import { createTodoAPI } from '../apis/todoApi';
+import { useInput } from 'hooks/useInput';
+import { createTodoAPI } from 'apis/todoApi';
 
 interface Props {
   fetchData: () => Promise<void>;

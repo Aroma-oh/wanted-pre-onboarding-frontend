@@ -1,13 +1,13 @@
 // react import
 import { useState } from 'react'
 // custom hook, api import 
-import { useInput } from '../hooks/useInput';
-import { deleteTodo, updateTodo } from '../apis/todoApi';
+import { useInput } from 'hooks/useInput';
+import { deleteTodo, updateTodo } from 'apis/todoApi';
 // component import 
-import { Button } from './Button';
-import { Input } from './Input';
+import { Button } from 'components/common/Button';
+import { Input } from 'components/common/Input';
 
-import { TodoProps } from '../types/todoTypes';
+import { TodoProps } from 'types/todoTypes';
 
 interface Props {
   todoData: TodoProps;

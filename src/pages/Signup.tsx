@@ -1,10 +1,10 @@
 // react router import 
 import { useNavigate, Link } from 'react-router-dom';
 // custom hook, api import
-import { useInput } from '../hooks/useInput';
-import { signupAPI } from '../apis/signApi';
+import { useInput } from 'hooks/useInput';
+import { signupAPI } from 'apis/signApi';
 // component import
-import { AuthForm } from '../components/AuthForm';
+import { AuthForm } from 'components/AuthForm';
 
 
 export const Signup = () => {
