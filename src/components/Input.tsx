@@ -4,7 +4,7 @@ interface Props {
   testid: string,
   id: string,
   type: string,
-  placeholder: string,
+  placeholder?: string,
   value: string,
   onChange: (event: ChangeEvent<HTMLInputElement>) => void,
 }
