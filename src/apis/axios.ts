@@ -11,6 +11,20 @@ export const todoAxios = axios.create({
   baseURL: 'https://www.pre-onboarding-selection-task.shop',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
   },
 })
+
+todoAxios.interceptors.request.use(
+  (config) => {
+    const accessToken = localStorage.getItem('access_token');
+
+    if (accessToken) {
+      config.headers['Authorization'] = `Bearer ${accessToken}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
