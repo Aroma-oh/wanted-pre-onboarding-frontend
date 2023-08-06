@@ -1,16 +1,18 @@
-import { useInput } from '../hooks/useInput';
-import { Input } from '../components/Input';
-import { Button } from '../components/Button';
-import { emailValidate, passwordValidate } from '../utils/validation';
-import { signinAPI } from '../apis/signApi';
-
+// react router import 
 import { useNavigate, Link } from 'react-router-dom';
+// custom hook, api import
+import { useInput } from '../hooks/useInput';
+import { signinAPI } from '../apis/signApi';
+// component import
+import { AuthForm } from '../components/AuthForm';
+
 
 export const Signin = () => {
-  const [email, handleEmail] = useInput("");
-  const [password, handlePassword] = useInput("");
-
   const navigate = useNavigate();
+
+  const [email, handleEmail] = useInput('');
+  const [password, handlePassword] = useInput('');
+
 
   const handleSubmit = async () => {
     try {
@@ -18,38 +20,22 @@ export const Signin = () => {
       navigate('/todo');
     }
     catch {
-      throw new Error("Sign in failed");
+      throw new Error('Sign in failed');
     }
   }
-  // 8879841@mmm.com
+
   return (
     <div>
       <h1>로그인</h1>
-      <form>
-        <Input
-          id='eamil'
-          type='text'
-          testid='email-input'
-          placeholder='user@wanted.com'
-          value={email}
-          onChange={handleEmail}
-        />
-        <Input
-          id='password'
-          type='password'
-          testid='password-input'
-          placeholder='********'
-          value={password}
-          onChange={handlePassword}
-        />
-        <Button
-          type='로그인'
-          testid='signin-button'
-          disabled={!emailValidate(email) || !passwordValidate(password)}
-          onClick={handleSubmit}
-        />
-      </form>
-
+      <AuthForm
+        email={email}
+        handleEmail={handleEmail}
+        password={password}
+        handlePassword={handlePassword}
+        handleSubmit={handleSubmit}
+        type='로그인'
+        testid='signin-button'
+      />
       <Link to='/signup'>회원가입</Link>
       <span>으로 이동하기 </span>
     </div>
