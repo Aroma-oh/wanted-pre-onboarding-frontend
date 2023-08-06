@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Todo } from './pages/Todo';
-import { Signin } from './pages/Signin';
-import { Signup } from './pages/Signup';
+import { Todo } from 'pages/Todo';
+import { Signin } from 'pages/Signin';
+import { Signup } from 'pages/Signup';
 
-import { redirectTodo, redirectSignin } from './utils/redirect';
+import { redirectTodo, redirectSignin } from 'utils/redirect';
 
 export const router = createBrowserRouter([
   {

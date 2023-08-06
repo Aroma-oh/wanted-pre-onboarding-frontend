@@ -1,19 +1,15 @@
-import { useEffect, useState } from 'react'
-import { TodoAdd } from '../components/TodoAdd'
+// react import
+import { useEffect, useState } from 'react';
+// component import
+import { TodoAdd } from 'components/todo/TodoAdd';
+import { TodoList } from 'components/todo/TodoList';
+// api, type import
+import { getTodosAPI } from 'apis/todoApi';
+import { TodoProps } from 'types/todoTypes';
 
-import { getTodosAPI, updateTodo } from '../apis/todoApi';
-import { TodoItem } from '../components/TodoItem';
-
-interface Props {
-  id: number,
-  todo: string,
-  isCompleted: boolean,
-  userId: number,
-}
 export const Todo = () => {
-  const [todoList, setTodoList] = useState<Props[]>([]);
+  const [todoList, setTodoList] = useState<TodoProps[]>([]);
 
-  // 데이터 관리
   useEffect(() => {
     fetchData();
   }, []);
@@ -23,35 +19,11 @@ export const Todo = () => {
     setTodoList(data);
   };
 
-  // 핸들러 관리
-  const handleCheckBox = async (id: number, event: React.ChangeEvent<HTMLInputElement>) => {
-    const [target] = todoList.filter((todo) => todo.id === id);
-    const todo = { todo: target.todo, isCompleted: event.target.checked };
-    await updateTodo(id, todo);
-    fetchData();
-  };
-
   return (
     <div>
       <h1>I Can Do It !</h1>
       <TodoAdd fetchData={fetchData} />
-      <ul>
-        {todoList.map((todo) => (
-          <li key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.isCompleted}
-              onChange={(event) => handleCheckBox(todo.id, event)}
-            />
-            <TodoItem
-              todo={todo.todo}
-              id={todo.id}
-              isCompleted={todo.isCompleted}
-              fetchData={fetchData}
-            />
-          </li>
-        ))}
-      </ul>
+      <TodoList fetchData={fetchData} todoList={todoList} />
     </div>
   )
 }

@@ -1,16 +1,17 @@
-import { useInput } from '../hooks/useInput';
-import { Input } from '../components/Input';
-import { Button } from '../components/Button';
-import { emailValidate, passwordValidate } from '../utils/validation';
-import { signupAPI } from '../apis/signApi';
-
+// react router import 
 import { useNavigate, Link } from 'react-router-dom';
+// custom hook, api import
+import { useInput } from 'hooks/useInput';
+import { signupAPI } from 'apis/signApi';
+// component import
+import { AuthForm } from 'components/AuthForm';
+
 
 export const Signup = () => {
+  const navigate = useNavigate();
+
   const [email, handleEmail] = useInput("");
   const [password, handlePassword] = useInput("");
-
-  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
@@ -25,30 +26,15 @@ export const Signup = () => {
   return (
     <div>
       <h1>회원가입</h1>
-      <form>
-        <Input
-          id='eamil'
-          type='text'
-          testid='email-input'
-          placeholder='user@wanted.com'
-          value={email}
-          onChange={handleEmail}
-        />
-        <Input
-          id='password'
-          type='password'
-          testid='password-input'
-          placeholder='********'
-          value={password}
-          onChange={handlePassword}
-        />
-        <Button
-          type='회원가입'
-          testid='signin-button'
-          disabled={!emailValidate(email) || !passwordValidate(password)}
-          onClick={handleSubmit}
-        />
-      </form>
+      <AuthForm
+        email={email}
+        handleEmail={handleEmail}
+        password={password}
+        handlePassword={handlePassword}
+        handleSubmit={handleSubmit}
+        type='회원가입'
+        testid='signup-button'
+      />
       <Link to='/signin'>로그인</Link>
       <span>으로 이동하기 </span>
     </div>
