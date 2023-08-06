@@ -1,6 +1,8 @@
-import { useInput } from '../hooks/useInput';
+// component import 
 import { Input } from './Input';
 import { Button } from './Button';
+// custom hook, api import 
+import { useInput } from '../hooks/useInput';
 import { createTodoAPI } from '../apis/todoApi';
 
 interface Props {
