@@ -6,7 +6,6 @@ import { emailValidate, passwordValidate } from 'utils/validation';
 // type import
 import { AuthProps } from 'types/authTypes';
 
-
 export const AuthForm = ({
   email,
   handleEmail,
