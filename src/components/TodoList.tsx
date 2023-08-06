@@ -1,20 +1,13 @@
-
 import { TodoItem } from '../components/TodoItem';
 import { updateTodo } from '../apis/todoApi';
-
-interface TodoProps {
-  id: number,
-  todo: string,
-  isCompleted: boolean,
-  userId: number,
-}
+import { TodoProps } from '../types/todoTypes';
 
 interface Props {
   todoList: TodoProps[];
-  fetchData: () => Promise<void>
+  fetchData: () => Promise<void>;
 }
 export const TodoList = ({ todoList, fetchData }: Props) => {
-  // 핸들러 관리
+
   const handleCheckBox = async (id: number, event: React.ChangeEvent<HTMLInputElement>) => {
     const [target] = todoList.filter((todo) => todo.id === id);
     const todo = { todo: target.todo, isCompleted: event.target.checked };
@@ -32,9 +25,7 @@ export const TodoList = ({ todoList, fetchData }: Props) => {
             onChange={(event) => handleCheckBox(todo.id, event)}
           />
           <TodoItem
-            todo={todo.todo}
-            id={todo.id}
-            isCompleted={todo.isCompleted}
+            todoData={todo}
             fetchData={fetchData}
           />
         </li>

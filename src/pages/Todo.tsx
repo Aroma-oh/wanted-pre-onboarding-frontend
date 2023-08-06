@@ -1,19 +1,15 @@
-import { useEffect, useState } from 'react'
-import { TodoAdd } from '../components/TodoAdd'
+// react import
+import { useEffect, useState } from 'react';
+// component import
+import { TodoAdd } from '../components/TodoAdd';
 import { TodoList } from '../components/TodoList';
-
+// api, type import
 import { getTodosAPI } from '../apis/todoApi';
+import { TodoProps } from '../types/todoTypes';
 
-interface TodoProps {
-  id: number,
-  todo: string,
-  isCompleted: boolean,
-  userId: number,
-}
 export const Todo = () => {
   const [todoList, setTodoList] = useState<TodoProps[]>([]);
 
-  // 데이터 관리
   useEffect(() => {
     fetchData();
   }, []);
