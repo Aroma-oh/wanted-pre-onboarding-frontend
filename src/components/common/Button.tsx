@@ -1,11 +1,6 @@
-interface Props {
-  type: string,
-  testid: string,
-  disabled?: boolean,
-  onClick: () => Promise<void> | void;
-}
+import { ButtonProps } from 'types/commonTypes'
 
-export const Button = ({ type, testid, disabled, onClick }: Props) => {
+export const Button = ({ type, testid, disabled, onClick }: ButtonProps) => {
   return (
     <button
       type='button'

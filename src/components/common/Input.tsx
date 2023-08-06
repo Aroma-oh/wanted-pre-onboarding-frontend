@@ -1,15 +1,6 @@
-import { ChangeEvent } from 'react'
+import { InputProps } from 'types/commonTypes';
 
-interface Props {
-  testid: string,
-  id: string,
-  type: string,
-  placeholder?: string,
-  value: string,
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void,
-}
-
-export const Input = ({ testid, id, type, placeholder, value, onChange }: Props) => {
+export const Input = ({ testid, id, type, placeholder, value, onChange }: InputProps) => {
   return (
     <div className='input'>
       <label htmlFor={id} />
@@ -22,6 +13,5 @@ export const Input = ({ testid, id, type, placeholder, value, onChange }: Props)
         onChange={onChange}
       />
     </div>
-
   )
 }
