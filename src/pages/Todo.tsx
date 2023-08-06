@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 // component import
 import { TodoAdd } from 'components/todo/TodoAdd';
 import { TodoList } from 'components/todo/TodoList';
+import { TodoStyle } from 'components/todo/TodoStyle';
 // api, type import
 import { getTodosAPI } from 'apis/todoApi';
 import { TodoProps } from 'types/todoTypes';
+
 
 export const Todo = () => {
   const [todoList, setTodoList] = useState<TodoProps[]>([]);
@@ -20,10 +22,10 @@ export const Todo = () => {
   };
 
   return (
-    <div>
-      <h1>I Can Do It !</h1>
+    <TodoStyle>
+      <h1>Do It !</h1>
       <TodoAdd fetchData={fetchData} />
       <TodoList fetchData={fetchData} todoList={todoList} />
-    </div>
+    </TodoStyle>
   )
-}
+};

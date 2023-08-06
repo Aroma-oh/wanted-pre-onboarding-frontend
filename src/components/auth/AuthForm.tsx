@@ -1,20 +1,10 @@
-// react import
-import { ChangeEvent } from 'react';
 // component import
 import { Input } from 'components/common/Input';
 import { Button } from 'components/common/Button';
 // validate import
 import { emailValidate, passwordValidate } from 'utils/validation';
-
-interface Props {
-  email: string;
-  handleEmail: (e: ChangeEvent<HTMLInputElement>) => void;
-  password: string;
-  handlePassword: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: () => Promise<void>;
-  type: string;
-  testid: string;
-}
+// type import
+import { AuthProps } from 'types/authTypes';
 
 export const AuthForm = ({
   email,
@@ -24,7 +14,7 @@ export const AuthForm = ({
   handleSubmit,
   type,
   testid
-}: Props) => {
+}: AuthProps) => {
 
   return (
     <form>
