@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# 원티드 프리온보딩 프론트엔드 - 선발 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 제출자: 오아름
 
-## Available Scripts
+## 프로젝트 실행 방법
+1. 패키지 설치:  `npm install`
+2. 프로젝트 실행: `npm start`
 
-In the project directory, you can run:
+## 배포 링크
+https://wanted-pre-onboarding-frontend-tau-five.vercel.app/todo
 
-### `npm start`
+## 데모 영상
+|회원가입(`/signup`)|로그인(`/signin`)|투두(`/todo`)|
+|:---:|:---:|:---:|
+|![](https://velog.velcdn.com/images/on002way/post/75a3476d-0f34-435f-a340-851a4de2cdd4/image.gif)|![](https://velog.velcdn.com/images/on002way/post/bfcaeede-a4d9-4446-a612-e8bc83513fcc/image.gif)|![](https://velog.velcdn.com/images/on002way/post/ae454118-3a2d-4935-863e-8496f996d3e0/image.gif)|
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 커밋 메시지 컨벤션
+* 예시: `feat: 로그인 기능 구현`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+|커밋 유형|의미|
+|:---:|:---:|
+|init| 프로젝트 시작|
+|feat| 기능 추가|
+|style| 코드 포맷팅|
+|refactor| 코드 리팩토링|
+|chore| 패키지 매니저 및 그 외 기타 수정 ex) .gitignore|
+|rename| 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우 |
+|remove|파일을 삭제하는 작업만 수행한 경우|
+|setting|기본 세팅 변경의 경우|
