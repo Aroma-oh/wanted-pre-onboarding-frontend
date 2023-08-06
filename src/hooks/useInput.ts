@@ -1,8 +1,9 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, Dispatch, SetStateAction } from 'react';
 
 type ReturnTypes = [
   string,
   (e: ChangeEvent<HTMLInputElement>) => void,
+  Dispatch<SetStateAction<string>>,
 ];
 
 export const useInput = (initialData: string): ReturnTypes => {
@@ -13,5 +14,5 @@ export const useInput = (initialData: string): ReturnTypes => {
     setValue(event.target.value);
   }
 
-  return [value, handler];
+  return [value, handler, setValue];
 }
