@@ -40,47 +40,69 @@
 #### 그래서 어떻게 재사용성을 높였지? 
 * 로직과 뷰를 분리하려고 노력했다.
 * 데이터 패칭 등 비즈니스 로직으로부터 컴포넌트로 분리하고, 부모로부터 props로 받을 수 있도록 작성했다. 👇
-```js
-import ... 
+  ```js
+  import ... 
+  
+  export const AuthForm = ({
+    email,
+    handleEmail,
+    password,
+    handlePassword,
+    handleSubmit,
+    type,
+    testid
+  }: AuthProps) => {
+  
+    return (
+      <form>
+        <Input
+          id='eamil'
+          type='text'
+          testid='email-input'
+          placeholder='user@wanted.com'
+          value={email}
+          onChange={handleEmail}
+        />
+        <Input
+          id='password'
+          type='password'
+          testid='password-input'
+          placeholder='********'
+          value={password}
+          onChange={handlePassword}
+        />
+        <Button
+          type={type}
+          testid={testid}
+          disabled={!emailValidate(email) || !passwordValidate(password)}
+          onClick={handleSubmit}
+        />
+      </form>
+    )
+  }
+  ```
 
-export const AuthForm = ({
-  email,
-  handleEmail,
-  password,
-  handlePassword,
-  handleSubmit,
-  type,
-  testid
-}: AuthProps) => {
+* 또한 커스텀 훅을 만들어 Input의 재사용이 쉽도록 하였다. 👇
+  ```js
+  import { ChangeEvent, useState, Dispatch, SetStateAction } from 'react';
 
-  return (
-    <form>
-      <Input
-        id='eamil'
-        type='text'
-        testid='email-input'
-        placeholder='user@wanted.com'
-        value={email}
-        onChange={handleEmail}
-      />
-      <Input
-        id='password'
-        type='password'
-        testid='password-input'
-        placeholder='********'
-        value={password}
-        onChange={handlePassword}
-      />
-      <Button
-        type={type}
-        testid={testid}
-        disabled={!emailValidate(email) || !passwordValidate(password)}
-        onClick={handleSubmit}
-      />
-    </form>
-  )
-}
-```
+  type ReturnTypes = [
+    string,
+    (e: ChangeEvent<HTMLInputElement>) => void,
+    Dispatch<SetStateAction<string>>,
+  ];
+  
+  export const useInput = (initialData: string): ReturnTypes => {
+  
+    const [value, setValue] = useState(initialData);
+  
+    const handler = (event: ChangeEvent<HTMLInputElement>) => {
+      setValue(event.target.value);
+    }
+  
+    return [value, handler, setValue];
+  }
+  ```
 
 #### 페이지 분기는 한 곳에서 관리하자! 
 * 각 페이지에서 분기처리를 한다면, 로직을 한 눈에 파악할 수 없을 것이라고 생각했다. 과제는 토큰 유무에 따라 리다이렉트 되는 페이지가 다르다. 만일 페이지에서 분기처리를 한다면, 토큰을 가진 사용자가 어디로 이동하는지를 알기 위해서는 해당 페이지 코드를 들여다 보아야하는 수고스러움이 * n번 발생할 것이다.
@@ -107,7 +129,7 @@ export const AuthForm = ({
 * [`getTodos`](https://github.com/walking-sunset/selection-task#2-2-gettodos) 요청은 헤더에 Authorization 키를 함께 보내야한다.
 * 하지만 리다이렉트시, API 요청 헤더는 업데이트되지 않아서 에러가 발생했다.
 
-![image](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend/assets/115550622/47eaab48-3f34-48a1-8778-91e666a5a9a8)
+  ![image](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend/assets/115550622/47eaab48-3f34-48a1-8778-91e666a5a9a8)
 
 #### 해결한 방법은? 
 * [`axios.interceptors`](https://axios-http.com/kr/docs/interceptors) 미들웨어를 사용했다.
@@ -148,7 +170,7 @@ export const AuthForm = ({
 * 반드시 독립적으로 설계되어 재사용 가능해야 한다.
 
 **내 코드를 바꿔본다면?**
-* `Singup.tsx` 페이지를 어떻게 바꿔볼까 고민해봤다.
+* `Singup.tsx 페이지`를 어떻게 바꿔볼까 고민해봤다.
 * 현재 Singup 페이지는 **비즈니스 로직과 컴포넌트로 분리 가능한 코드들이 혼재**되어 있다. 그리고 정작 페이지의 역할인 메타태그 관리는 하고있지 않다. 
 * 따라서 비즈니스 로직은 Container로, 분리 가능한 컴포넌트는 분리. 또한 `react-helmet-async`을 이용하여 메타태그를 설정하는 것은 어떨까 고민해봤다.
 
