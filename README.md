@@ -41,6 +41,8 @@
 * 로직과 뷰를 분리하려고 노력했다.
 * 데이터 패칭 등 비즈니스 로직으로부터 컴포넌트로 분리하고, 부모로부터 props로 받을 수 있도록 작성했다. 👇
   ```js
+  // src/components/auth/AuthForm.tsx
+  
   import ... 
   
   export const AuthForm = ({
@@ -84,6 +86,8 @@
 
 * 또한 커스텀 훅을 만들어 Input의 재사용이 쉽도록 하였다. 👇
   ```js
+  // src/hooks/useInput.ts
+  
   import { ChangeEvent, useState, Dispatch, SetStateAction } from 'react';
 
   type ReturnTypes = [
@@ -114,6 +118,8 @@
   <p> 코드 미리보기 👇 (loader 속성에 정의해준 리다이렉트 함수이다. 토큰의 유무를 검사하고 경로를 처리를 한다. )</p>
   
   ```js
+  // src/utils/redirect.ts
+  
   export const redirectTodo = () => {
     const token = localStorage.getItem('access_token');
   
@@ -135,6 +141,8 @@
 * [`axios.interceptors`](https://axios-http.com/kr/docs/interceptors) 미들웨어를 사용했다.
 * 인터셉터를 사용하면, 요청 전에 토큰을 업데이트하는 함수를 실행할 수 있게 해준다.
   ```js
+  // src/apis/axios.ts
+  
   todoAxios.interceptors.request.use(
     (config) => {
       const accessToken = localStorage.getItem('access_token');
@@ -176,6 +184,8 @@
 
 **`As Is`**
 ```js
+  // src/pages/Signup.tsx
+
   import ...
   
   export const Signup = () => {
@@ -234,7 +244,7 @@
 * 또한 TODO의 CRUD 실패는 네트워크 문제로 공통되는데, 코드에서는 해당 문장을 단순 반복 타이핑했다. 이 부분도 고쳐보고 싶다.
 * 아래는 고민해본 코드이다. 👇
   ```js
-    errorMessageOptions = {
+    const errorMessageOptions = {
       'networkError': '잠시후 다시 시도해주세요.',
       'emailConvetion': '이메일은 @를 포함하여야 합니다.',
       'shortPassword': '비밀번호는 8자 이상이어야 합니다.',
