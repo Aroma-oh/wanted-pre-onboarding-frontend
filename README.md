@@ -14,6 +14,19 @@ https://wanted-pre-onboarding-frontend-tau-five.vercel.app/todo
 |:---:|:---:|:---:|
 |![](https://velog.velcdn.com/images/on002way/post/75a3476d-0f34-435f-a340-851a4de2cdd4/image.gif)|![](https://velog.velcdn.com/images/on002way/post/bfcaeede-a4d9-4446-a612-e8bc83513fcc/image.gif)|![](https://velog.velcdn.com/images/on002way/post/ae454118-3a2d-4935-863e-8496f996d3e0/image.gif)|
 
+## 디렉토리 구조
+```
+src
+├── apis
+├── components
+│   ├── auth
+│   ├── common
+│   └── todo
+├── hooks
+├── pages
+├── types
+└── utils
+```
 ## 커밋 메시지 컨벤션
 * 예시: `feat: 로그인 기능 구현`
 
