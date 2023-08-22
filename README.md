@@ -8,6 +8,11 @@
   ```
 * 배포 링크로 [확인하기](https://wanted-pre-onboarding-frontend-tau-five.vercel.app/todo)
 * 데모 영상으로 확인하기
+
+  |회원가입(`/signup`)|로그인(`/signin`)|투두(`/todo`)|
+  |:---:|:---:|:---:|
+  |![](https://velog.velcdn.com/images/on002way/post/75a3476d-0f34-435f-a340-851a4de2cdd4/image.gif)|![](https://velog.velcdn.com/images/on002way/post/bfcaeede-a4d9-4446-a612-e8bc83513fcc/image.gif)|![](https://velog.velcdn.com/images/on002way/post/ae454118-3a2d-4935-863e-8496f996d3e0/image.gif)|
+
 * 폴더 구조
   ```
   src
@@ -21,11 +26,6 @@
   ├── types
   └── utils
   ```
-  
-|회원가입(`/signup`)|로그인(`/signin`)|투두(`/todo`)|
-|:---:|:---:|:---:|
-|![](https://velog.velcdn.com/images/on002way/post/75a3476d-0f34-435f-a340-851a4de2cdd4/image.gif)|![](https://velog.velcdn.com/images/on002way/post/bfcaeede-a4d9-4446-a612-e8bc83513fcc/image.gif)|![](https://velog.velcdn.com/images/on002way/post/ae454118-3a2d-4935-863e-8496f996d3e0/image.gif)|
-
 ----
 ## ✍️ 요구사항 정리하기 
 - [x] 회원가입 기능 구현
