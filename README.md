@@ -232,7 +232,6 @@
     return (
       <AuthStyle>
         <Helmet>...</Helmet>
-        <h1>회원가입</h1>
         <AuthContainer />
       </AuthStyle>
     )
