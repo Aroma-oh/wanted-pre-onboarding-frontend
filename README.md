@@ -251,8 +251,8 @@
     }
   ```
   
-## 🪄 리팩토링
-* 아쉬움으로 남은 사항들을 참고하여 리팩토링을 진행한 리포지토리입니다. [(바로가기)](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend-projects/tree/main/pre-onboarding-12th-1-11)
+## 🪄 리팩토링 [(바로가기)](https://github.com/Aroma-oh/wanted-pre-onboarding-frontend-projects/tree/main/pre-onboarding-12th-1-11)
+* 아쉬움으로 남은 사항들을 참고하여 리팩토링을 진행한 리포지토리입니다. 
 * 팀 과제의 일환으로 Auth 부분만을 리팩토링 하였습니다. 
 
 ---
